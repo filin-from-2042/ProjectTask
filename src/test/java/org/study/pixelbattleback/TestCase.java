@@ -61,6 +61,14 @@ public class TestCase {
                 throw new RuntimeException(e);
             }
         }
-        System.out.println(stats);
+        System.out.println(String.format("%s     %s     %s     %s", stats.getCount(), stats.getMin(), stats.getAverage(), stats.getMax()));
+    }
+
+    @Test
+    public void testSequential() {
+        System.out.println("count     min     average     max");
+        for (int i = 0; i < 10; i++) {
+            testParallel();
+        }
     }
 }
